@@ -1,0 +1,93 @@
+{
+  "recipes": [
+    {
+      "id": "c2c50c69-9ae4-49c0-90ac-2b8d9be3331d",
+      "name": "Amber Ale",
+      "style": "",
+      "fermentables": [
+        {
+          "name": "Pale Ale Malt",
+          "weight": {
+            "unit": "pound",
+            "value": 10
+          },
+          "gravity": "1.036",
+          "lovibond": 3,
+          "srm": 3
+        },
+        {
+          "name": "Caramel Malt 120L",
+          "weight": {
+            "unit": "pound",
+            "value": 0.5
+          },
+          "gravity": "1.036",
+          "lovibond": 3,
+          "srm": 3
+        },
+      ],
+      "hops": [],
+      "yeast": {},
+      "mash": {
+      "schedule": {
+        "efficiency": 0.75,
+        "losses": [
+          {
+            "type": "boil",
+            "rate": {
+              "antecedent": "gallon",
+              "consequent": "hour",
+              "value": 1
+            }
+          },
+          {
+            "type": "grains",
+            "rate": {
+              "antecedent": "gallon",
+              "consequent": "pound",
+              "value": 0.1
+            }
+          }
+        ],
+        "method": "biab",
+        "rests": [
+          {
+            "recirculated": false,
+            "temperature": {
+              "value": 104,
+              "unit": "fahrenheit"
+            },
+            "time": {
+              "value": 30,
+              "unit": "minute"
+            }
+          },
+          {
+            "recirculated": false,
+            "temperature": {
+              "value": 140,
+              "unit": "fahrenheit"
+            },
+            "time": {
+              "value": 30,
+              "unit": "minute"
+            }
+          },
+          {
+            "recirculated": true,
+            "temperature": {
+              "value": 158,
+              "unit": "fahrenheit"
+            },
+            "time": {
+              "value": 30,
+              "unit": "minute"
+            }
+          }
+        ],
+        "sparge": "none"
+      }
+    }
+    }
+  ]
+}
