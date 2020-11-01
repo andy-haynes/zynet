@@ -4,20 +4,29 @@ module.exports = gql`
     scalar Date
     
     type BrewInstance {
-        brewDate: DateRange
+        dateRange: DateRange
+        ferment: Ferment
         notes: [Note]
+        recipe: Recipe
     }
     
     type DateRange {
         startDate: Date!
         endDate: Date
     }
-    
+
+    type EquipmentProfile {
+        id: String!
+        name: String!
+        losses: [Loss]
+    }
+
     type Ferment {
         id: String!
         recipe: Recipe
         brewInstance: BrewInstance
         dateRange: DateRange!
+        gravityDeltas: [GravityDelta]
         notes: [Note]
     }
     
@@ -30,6 +39,19 @@ module.exports = gql`
         weight: Measurement
     }
     
+    type FermentationVessel {
+        id: String!
+        capacity: Measurement!
+        name: String!
+        type: String!
+    }
+
+    type GravityDelta {
+        dateRange: DateRange
+        finalGravity: String
+        originalGravity: String
+    }
+
     type Hop {
         name: String!
         alpha: Float
@@ -47,10 +69,11 @@ module.exports = gql`
         utilization: Float
     }
     
-    type MashLoss {
-        name: String!
+    type Loss {
+        type: String!
+        ratio: Ratio!
     }
-    
+
     type MashProfile {
         schedule: MashSchedule
     }
@@ -62,21 +85,14 @@ module.exports = gql`
     
     type MashSchedule {
         efficiency: Float
-        losses: [MashLoss]
         method: String
         rests: [MashRest]
         sparge: String
     }
     
     type Measurement {
-        unit: MeasurementUnit
+        unit: String!
         value: Float!
-    }
-    
-    type MeasurementUnit {
-        name: String
-        shortName: String
-        unit: String
     }
     
     type Note {
@@ -84,11 +100,17 @@ module.exports = gql`
         note: String!
     }
     
+    type Ratio {
+        antecedent: String!
+        consequent: String!
+        value: Float!
+    }
+    
     type Recipe {
         id: String!
         name: String!
-        style: RecipeStyle
-        lastBrewed: String
+        style: String
+        brewInstances: [BrewInstance]
         fermentables: [Fermentable]
         hops: [Hop]
         yeast: [Yeast]

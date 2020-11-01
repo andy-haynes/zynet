@@ -1,0 +1,13 @@
+{
+  "fermentation_vessels": [
+    {
+      "id": "46fa940e-8765-4af1-939c-4417f34124a0",
+      "name": "Conical 1",
+      "type": "conical",
+      "capacity": {
+        "unit": "gallon",
+        "value": 7
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "brew_instances": [
+    {
+      "id": "3767312e-51d1-43de-99d0-3a98f34abbaa",
+      "recipe": "c2c50c69-9ae4-49c0-90ac-2b8d9be3331d",
+      "ferment": "38f4b3e7-ca54-4111-baf6-c193b71fa337",
+      "equipmentProfile": "6faf458a-1b7f-4fae-bf54-aa0efe03c7cb",
+      "dateRange": {
+        "startDate": "2020-01-01"
+      }
+    }
+  ]
+}

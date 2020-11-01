@@ -1,0 +1,26 @@
+{
+  "equipment_profiles": [
+    {
+      "id": "6faf458a-1b7f-4fae-bf54-aa0efe03c7cb",
+      "name": "eBIAB",
+      "losses": [
+        {
+          "type": "boil",
+          "rate": {
+            "antecedent": "gallon",
+            "consequent": "hour",
+            "value": 1
+          }
+        },
+        {
+          "type": "grains",
+          "rate": {
+            "antecedent": "gallon",
+            "consequent": "pound",
+            "value": 0.1
+          }
+        }
+      ]
+    }
+  ]
+}

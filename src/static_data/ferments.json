@@ -1,0 +1,31 @@
+{
+  "ferments": [
+    {
+      "id": "38f4b3e7-ca54-4111-baf6-c193b71fa337",
+      "brewInstance": "3767312e-51d1-43de-99d0-3a98f34abbaa",
+      "dateRange": {
+        "startDate": "2020-01-01",
+        "endDate": "2020-01-14"
+      },
+      "gravityDeltas": [
+        {
+          "dateRange": {
+            "startDate": "2020-01-01",
+            "endDate": "2020-01-14"
+          },
+          "finalGravity": "1.011",
+          "originalGravity": "1.054"
+        }
+      ],
+      "vessels": [
+        {
+          "vessel": "46fa940e-8765-4af1-939c-4417f34124a0",
+          "dateRange": {
+            "startDate": "2020-01-01",
+            "endDate": "2020-01-14"
+          }
+        }
+      ]
+    }
+  ]
+}
