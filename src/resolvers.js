@@ -4,6 +4,7 @@ const {
   BrewInstanceService,
   FermentService,
   FermentationVesselService,
+  IngredientService,
   RecipeService,
 } = require('./services');
 
@@ -20,6 +21,11 @@ module.exports = {
   FermentationVessel: {
     ferments: (parent) => FermentService.listFermentsByVessel(parent.id),
   },
+  IngredientResults: {
+    fermentables: (parent, args) => IngredientService.listFermentables(args.ingredientSearch),
+    hops: (parent, args) => IngredientService.listHops(args.ingredientSearch),
+    yeast: (parent, args) => IngredientService.listYeast(args.ingredientSearch),
+  },
   Query: {
     brewDay: (brewInstanceId) => BrewInstanceService.getBrewInstance(brewInstanceId),
     brewDays: () => BrewInstanceService.listBrewInstances(),
@@ -27,6 +33,7 @@ module.exports = {
     ferments: () => FermentService.listFerments(),
     fermentationVessel: (vesselId) => FermentationVesselService.getVessel(vesselId),
     fermentationVessels: () => FermentationVesselService.listVessels(),
+    ingredients: () => ({}),
     recipe: (recipeId) => RecipeService.getRecipe(recipeId),
     recipes: () => RecipeService.listRecipes(),
   },

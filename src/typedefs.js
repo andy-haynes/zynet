@@ -73,6 +73,16 @@ module.exports = gql`
         utilization: Float
     }
     
+    type IngredientResults {
+        fermentables(ingredientSearch: IngredientSearchInput): [Fermentable]
+        hops(ingredientSearch: IngredientSearchInput): [Hop]
+        yeast(ingredientSearch: IngredientSearchInput): [Yeast]
+    }
+
+    input IngredientSearchInput {
+        searchTerm: String
+    }
+
     type Loss {
         type: String!
         ratio: Ratio!
@@ -161,6 +171,7 @@ module.exports = gql`
         ferments: [Ferment]
         fermentationVessel(vesselId: String): FermentationVessel
         fermentationVessels: [FermentationVessel]
+        ingredients: IngredientResults
         recipe(recipeId: String): Recipe
         recipes: [Recipe]
     }
