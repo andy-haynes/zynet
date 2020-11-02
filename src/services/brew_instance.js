@@ -11,11 +11,11 @@ module.exports = {
     return _.first(brew_instances, { ferment: fermentId });
   },
 
-  getBrewInstances() {
+  listBrewInstances() {
     return brew_instances;
   },
 
-  getBrewInstancesByRecipe(recipeId) {
+  listBrewInstancesByRecipe(recipeId) {
     return _.filter(brew_instances, { recipe: recipeId });
   },
 };

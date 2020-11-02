@@ -13,7 +13,7 @@ module.exports = {
     return _.first(recipes, { id: brewInstance.recipe });
   },
 
-  getRecipes() {
+  listRecipes() {
     return recipes;
   },
 };

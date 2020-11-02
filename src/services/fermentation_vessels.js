@@ -7,11 +7,11 @@ module.exports = {
     return _.first(fermentation_vessels, { id: vesselId });
   },
 
-  getVessels() {
+  listVessels() {
     return fermentation_vessels;
   },
 
-  getVesselsByIds(vesselIds) {
+  listVesselsByIds(vesselIds) {
     return _.filter((fermentation_vessels), (vessel) => vesselIds.includes(vessel.id));
   },
 };

@@ -8,18 +8,18 @@ module.exports = {
     return _.first(ferments, { id: fermentId });
   },
 
-  getFerments() {
+  listFerments() {
     return ferments;
   },
 
-  getFermentsByRecipe(recipeId) {
-    const brewInstances = BrewInstanceService.getBrewInstancesByRecipe(recipeId);
+  listFermentsByRecipe(recipeId) {
+    const brewInstances = BrewInstanceService.listBrewInstancesByRecipe(recipeId);
     return _.filter(ferments, (ferment) => {
       return _.some(brewInstances, { ferment: ferment.id });
     });
   },
 
-  getFermentsByVessel(vesselId) {
+  listFermentsByVessel(vesselId) {
     return _.filter(ferments, (ferment) => {
       return _.some(ferment.vessels, { vessel: vesselId })
     });
