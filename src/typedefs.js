@@ -24,10 +24,12 @@ module.exports = gql`
     type Ferment {
         id: String!
         recipe: Recipe
+        brewDay: BrewInstance
         brewInstance: BrewInstance
         dateRange: DateRange!
         gravityDeltas: [GravityDelta]
         notes: [Note]
+        vessels: [FermentationVessel]
     }
     
     type Fermentable {
@@ -42,6 +44,7 @@ module.exports = gql`
     type FermentationVessel {
         id: String!
         capacity: Measurement!
+        ferments: [Ferment]
         name: String!
         type: String!
     }
@@ -115,6 +118,7 @@ module.exports = gql`
         hops: [Hop]
         yeast: [Yeast]
         mash: MashProfile
+        ferments: [Ferment]
     }
     
     type RecipeStyle {
@@ -150,6 +154,8 @@ module.exports = gql`
     }
     
     type Query {
+        brewDays: [BrewInstance]
+        fermentationVessels: [FermentationVessel]
         recipes: [Recipe]
     }
 `;
