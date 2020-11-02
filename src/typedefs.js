@@ -4,6 +4,7 @@ module.exports = gql`
     scalar Date
     
     type BrewInstance {
+        id: String
         dateRange: DateRange
         ferment: Ferment
         notes: [Note]
@@ -154,8 +155,13 @@ module.exports = gql`
     }
     
     type Query {
+        brewDay(brewInstanceId: String): BrewInstance
         brewDays: [BrewInstance]
+        ferment(fermentId: String): Ferment
+        ferments: [Ferment]
+        fermentationVessel(vesselId: String): FermentationVessel
         fermentationVessels: [FermentationVessel]
+        recipe(recipeId: String): Recipe
         recipes: [Recipe]
     }
 `;
