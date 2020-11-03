@@ -5,7 +5,7 @@ const BrewInstanceService = require('./brew_instance');
 
 module.exports = {
   getFerment(fermentId) {
-    return _.first(ferments, { id: fermentId });
+    return _.find(ferments, { id: fermentId });
   },
 
   listFerments() {

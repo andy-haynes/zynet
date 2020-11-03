@@ -4,7 +4,7 @@ const { fermentation_vessels } = require('../static_data/fermentation_vessels.js
 
 module.exports = {
   getVessel(vesselId) {
-    return _.first(fermentation_vessels, { id: vesselId });
+    return _.find(fermentation_vessels, { id: vesselId });
   },
 
   listVessels() {

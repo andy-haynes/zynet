@@ -5,12 +5,12 @@ const BrewInstanceService = require('./brew_instance');
 
 module.exports = {
   getRecipe(recipeId) {
-    return _.first(recipes, { id: recipeId });
+    return _.find(recipes, { id: recipeId });
   },
 
   getRecipeForFerment(fermentId) {
     const brewInstance = BrewInstanceService.getBrewInstanceByFerment(fermentId);
-    return _.first(recipes, { id: brewInstance.recipe });
+    return _.find(recipes, { id: brewInstance.recipe });
   },
 
   listRecipes() {

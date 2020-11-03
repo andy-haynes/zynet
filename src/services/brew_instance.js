@@ -4,11 +4,11 @@ const { brew_instances } = require('../static_data/brew_instances.json');
 
 module.exports = {
   getBrewInstance(instanceId) {
-    return _.first(brew_instances, { id: instanceId });
+    return _.find(brew_instances, { id: instanceId });
   },
 
   getBrewInstanceByFerment(fermentId) {
-    return _.first(brew_instances, { ferment: fermentId });
+    return _.find(brew_instances, { ferment: fermentId });
   },
 
   listBrewInstances() {

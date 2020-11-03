@@ -6,7 +6,7 @@ const { yeast } = require('../static_data/yeast.json');
 
 module.exports = {
   getIngredient(ingredientId) {
-    return _.first([
+    return _.find([
       ...fermentables,
       ...hops,
       ...yeast,
