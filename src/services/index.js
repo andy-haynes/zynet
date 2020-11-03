@@ -3,6 +3,7 @@ const FermentService = require('./ferment');
 const FermentationVesselService = require('./fermentation_vessels');
 const IngredientService = require('./ingredient');
 const RecipeService = require('./recipe');
+const StyleService = require('./style');
 
 module.exports = {
   BrewInstanceService,
@@ -10,4 +11,5 @@ module.exports = {
   FermentationVesselService,
   IngredientService,
   RecipeService,
+  StyleService,
 }

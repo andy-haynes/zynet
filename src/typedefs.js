@@ -123,7 +123,7 @@ module.exports = gql`
     type Recipe {
         id: String!
         name: String!
-        style: String
+        style: RecipeStyle
         brewInstances: [BrewInstance]
         fermentables: [Fermentable]
         hops: [Hop]
@@ -174,5 +174,7 @@ module.exports = gql`
         ingredients: IngredientResults
         recipe(recipeId: String): Recipe
         recipes: [Recipe]
+        style(styleId: String): RecipeStyle
+        styles: [RecipeStyle]
     }
 `;

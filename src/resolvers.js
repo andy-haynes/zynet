@@ -6,6 +6,7 @@ const {
   FermentationVesselService,
   IngredientService,
   RecipeService,
+  StyleService,
 } = require('./services');
 
 module.exports = {
@@ -36,6 +37,8 @@ module.exports = {
     ingredients: () => ({}),
     recipe: (recipeId) => RecipeService.getRecipe(recipeId),
     recipes: () => RecipeService.listRecipes(),
+    style: (parent, { styleId }) => StyleService.getStyle(styleId),
+    styles: () => StyleService.listStyles(),
   },
   Recipe: {
     brewInstances: (parent) => BrewInstanceService.listBrewInstancesByRecipe(parent.id),
