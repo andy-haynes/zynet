@@ -28,14 +28,14 @@ module.exports = {
     yeast: (parent, args) => IngredientService.listYeast(args.ingredientSearch),
   },
   Query: {
-    brewDay: (brewInstanceId) => BrewInstanceService.getBrewInstance(brewInstanceId),
+    brewDay: (parent, { brewInstanceId }) => BrewInstanceService.getBrewInstance(brewInstanceId),
     brewDays: () => BrewInstanceService.listBrewInstances(),
-    ferment: (fermentId) => FermentService.getFerment(fermentId),
+    ferment: (parent, { fermentId }) => FermentService.getFerment(fermentId),
     ferments: () => FermentService.listFerments(),
-    fermentationVessel: (vesselId) => FermentationVesselService.getVessel(vesselId),
+    fermentationVessel: (parent, { vesselId }) => FermentationVesselService.getVessel(vesselId),
     fermentationVessels: () => FermentationVesselService.listVessels(),
     ingredients: () => ({}),
-    recipe: (recipeId) => RecipeService.getRecipe(recipeId),
+    recipe: (parent, { recipeId }) => RecipeService.getRecipe(recipeId),
     recipes: () => RecipeService.listRecipes(),
     style: (parent, { styleId }) => StyleService.getStyle(styleId),
     styles: () => StyleService.listStyles(),
@@ -43,5 +43,6 @@ module.exports = {
   Recipe: {
     brewInstances: (parent) => BrewInstanceService.listBrewInstancesByRecipe(parent.id),
     ferments: (parent) => FermentService.listFermentsByRecipe(parent.id),
+    style: (parent) => StyleService.getStyle(parent.style),
   },
 };
