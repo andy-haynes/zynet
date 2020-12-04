@@ -7,7 +7,7 @@ module.exports = gql`
         id: String
         dateRange: DateRange
         ferment: Ferment
-        notes: [Note]
+        notes: [Note!]
         recipe: Recipe
     }
     
@@ -19,7 +19,7 @@ module.exports = gql`
     type EquipmentProfile {
         id: String!
         name: String!
-        losses: [Loss]
+        losses: [Loss!]
     }
 
     type Ferment {
@@ -28,9 +28,9 @@ module.exports = gql`
         brewDay: BrewInstance
         brewInstance: BrewInstance
         dateRange: DateRange!
-        gravityDeltas: [GravityDelta]
-        notes: [Note]
-        vessels: [FermentationVessel]
+        gravityDeltas: [GravityDelta!]
+        notes: [Note!]
+        vessels: [FermentationVessel!]
     }
     
     type Fermentable {
@@ -39,13 +39,13 @@ module.exports = gql`
         lovibond: Int
         name: String!
         srm: Float
-        weight: Measurement
+        weight: Measurement!
     }
     
     type FermentationVessel {
         id: String!
         capacity: Measurement!
-        ferments: [Ferment]
+        ferments: [Ferment!]
         name: String!
         type: String!
     }
@@ -60,8 +60,8 @@ module.exports = gql`
         name: String!
         alpha: Float
         beta: Float
-        additions: [HopAddition]
-        aromaticProfile: [String]
+        additions: [HopAddition!]
+        aromaticProfile: [String!]
         form: String
     }
     
@@ -74,9 +74,9 @@ module.exports = gql`
     }
     
     type IngredientResults {
-        fermentables(ingredientSearch: IngredientSearchInput): [Fermentable]
-        hops(ingredientSearch: IngredientSearchInput): [Hop]
-        yeast(ingredientSearch: IngredientSearchInput): [Yeast]
+        fermentables(ingredientSearch: IngredientSearchInput): [Fermentable!]
+        hops(ingredientSearch: IngredientSearchInput): [Hop!]
+        yeast(ingredientSearch: IngredientSearchInput): [Yeast!]
     }
 
     input IngredientSearchInput {
@@ -100,7 +100,7 @@ module.exports = gql`
     type MashSchedule {
         efficiency: Float
         method: String
-        rests: [MashRest]
+        rests: [MashRest!]
         sparge: String
     }
     
@@ -124,12 +124,12 @@ module.exports = gql`
         id: String!
         name: String!
         style: RecipeStyle
-        brewInstances: [BrewInstance]
-        fermentables: [Fermentable]
-        hops: [Hop]
-        yeast: [Yeast]
+        brewInstances: [BrewInstance!]
+        fermentables: [Fermentable!]
+        hops: [Hop!]
+        yeast: [Yeast!]
         mash: MashProfile
-        ferments: [Ferment]
+        ferments: [Ferment!]
     }
     
     type RecipeStyle {
@@ -140,7 +140,7 @@ module.exports = gql`
         characteristicIngredients: String
         code: String
         comments: String
-        commercialExamples: [String]
+        commercialExamples: [String!]
         FG: String
         flavor: String
         history: String
@@ -151,7 +151,7 @@ module.exports = gql`
         overallImpression: String
         SRM: String
         styleComparison: String
-        tags: [String]
+        tags: [String!]
     }
     
     type Yeast {
@@ -161,20 +161,20 @@ module.exports = gql`
         pitchTemp: Measurement
         quantity: Int
         targetCellCount: Int
-        styles: [String]
+        styles: [String!]
     }
     
     type Query {
         brewDay(brewInstanceId: String): BrewInstance
-        brewDays: [BrewInstance]
+        brewDays: [BrewInstance!]
         ferment(fermentId: String): Ferment
-        ferments: [Ferment]
+        ferments: [Ferment!]
         fermentationVessel(vesselId: String): FermentationVessel
-        fermentationVessels: [FermentationVessel]
+        fermentationVessels: [FermentationVessel!]
         ingredients: IngredientResults
         recipe(recipeId: String): Recipe
-        recipes: [Recipe]
+        recipes: [Recipe!]
         style(styleId: String): RecipeStyle
-        styles: [RecipeStyle]
+        styles: [RecipeStyle!]
     }
 `;
