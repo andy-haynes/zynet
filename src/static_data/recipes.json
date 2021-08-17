@@ -35,10 +35,64 @@
       ],
       "hops": [
         {
+          "id": "bad82f26-b9a7-4587-9cb3-fb699aa034d2",
           "name": "Zythos®",
-          "categories": "Citrus,Tropical Fruit",
+          "aromaticProfile": ["Citrus","Tropical Fruit"],
           "alpha": 12.7,
           "beta": 8.4,
+          "additions": [
+            {
+              "time": {
+                "unit": "minute",
+                "value": 5
+              },
+              "type": "boil",
+              "form": "pellet",
+              "quantity": {
+                "value": 2,
+                "unit": "ounce"
+              }
+            },
+            {
+              "time": {
+                "unit": "minute",
+                "value": 15
+              },
+              "type": "boil",
+              "form": "pellet",
+              "quantity": {
+                "value": 4,
+                "unit": "ounce"
+              }
+            },
+            {
+              "type": "flameout",
+              "form": "pellet",
+              "quantity": {
+                "value": 4,
+                "unit": "ounce"
+              }
+            },
+            {
+              "time": {
+                "unit": "day",
+                "value": 11
+              },
+              "type": "dry hop",
+              "form": "pellet",
+              "quantity": {
+                "value": 4,
+                "unit": "ounce"
+              }
+            }
+          ]
+        },
+        {
+          "id": "e324b13a-5a72-4c6f-91a0-cffda87c445b",
+          "name": "Ekuanot™",
+          "alpha": 14,
+          "beta": 4.5,
+          "aromaticProfile": ["Citrus","Tropical Fruit","Fruity","Herbal"],
           "additions": [
             {
               "time": {
@@ -65,7 +119,7 @@
                 "unit": "day",
                 "value": 11
               },
-              "type": "dry",
+              "type": "dry hop",
               "form": "pellet",
               "quantity": {
                 "value": 4,
@@ -89,23 +143,29 @@
         }
       ],
       "mash": {
-        "efficiency": 0.75,
-        "method": "biab",
-        "rests": [
-          {
-            "type": "saccharification",
-            "recirculated": true,
-            "temperature": {
-              "value": 152,
-              "unit": "fahrenheit"
-            },
-            "time": {
-              "unit": "minute",
-              "value": 60
-            },
-            "sparge": "none"
-          }
-        ]
+        "schedule": {
+          "efficiency": 0.75,
+          "method": "biab",
+          "rests": [
+            {
+              "type": "alpha amylase",
+              "recirculated": true,
+              "temperature": {
+                "value": 152,
+                "unit": "fahrenheit"
+              },
+              "time": {
+                "unit": "minute",
+                "value": 60
+              },
+              "sparge": "no sparge"
+            }
+          ]
+        }
+      },
+      "targetVolume": {
+        "unit": "gallon",
+        "value": 5
       }
     }
   ]

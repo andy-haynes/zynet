@@ -15,7 +15,7 @@ module.exports = {
     recipe: (parent) => RecipeService.getRecipe(parent.recipe),
   },
   Ferment: {
-    brewDay: (parent) => BrewInstanceService.getBrewInstanceByFerment(parent.id),
+    brewInstance: (parent) => BrewInstanceService.getBrewInstanceByFerment(parent.id),
     recipe: (parent) => RecipeService.getRecipeForFerment(parent.id),
     vessels: (parent) => FermentationVesselService.listVesselsByIds(_.map(parent.vessels, 'vessel')),
   },
@@ -28,11 +28,11 @@ module.exports = {
     yeast: (parent, args) => IngredientService.listYeast(args.ingredientSearch),
   },
   Query: {
-    brewDay: (parent, { brewInstanceId }) => BrewInstanceService.getBrewInstance(brewInstanceId),
-    brewDays: () => BrewInstanceService.listBrewInstances(),
+    brewInstance: (parent, { brewInstanceId }) => BrewInstanceService.getBrewInstance(brewInstanceId),
+    brewInstances: () => BrewInstanceService.listBrewInstances(),
     ferment: (parent, { fermentId }) => FermentService.getFerment(fermentId),
     ferments: () => FermentService.listFerments(),
-    fermentationVessel: (parent, { vesselId }) => FermentationVesselService.getVessel(vesselId),
+    fermentationVessel: (parent, { fermentationVesselId }) => FermentationVesselService.getVessel(fermentationVesselId),
     fermentationVessels: () => FermentationVesselService.listVessels(),
     ingredients: () => ({}),
     recipe: (parent, { recipeId }) => RecipeService.getRecipe(recipeId),

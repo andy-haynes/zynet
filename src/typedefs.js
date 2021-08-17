@@ -25,7 +25,6 @@ module.exports = gql`
     type Ferment {
         id: String!
         recipe: Recipe
-        brewDay: BrewInstance
         brewInstance: BrewInstance
         dateRange: DateRange!
         gravityDeltas: [GravityDelta!]
@@ -34,6 +33,7 @@ module.exports = gql`
     }
     
     type Fermentable {
+        id: String!
         color: String
         gravity: String
         lovibond: Int
@@ -57,6 +57,7 @@ module.exports = gql`
     }
 
     type Hop {
+        id: String!
         name: String!
         alpha: Float
         beta: Float
@@ -66,11 +67,10 @@ module.exports = gql`
     }
     
     type HopAddition {
-        minutes: Int
+        form: String
         quantity: Measurement
+        time: Measurement
         type: String
-        ibu: Float
-        utilization: Float
     }
     
     type IngredientResults {
@@ -93,8 +93,9 @@ module.exports = gql`
     }
     
     type MashRest {
+        type: String
         temperature: Measurement
-        minutes: Int
+        time: Measurement
     }
     
     type MashSchedule {
@@ -130,6 +131,7 @@ module.exports = gql`
         yeast: [Yeast!]
         mash: MashProfile
         ferments: [Ferment!]
+        targetVolume: Measurement
     }
     
     type RecipeStyle {
@@ -155,6 +157,7 @@ module.exports = gql`
     }
     
     type Yeast {
+        id: String!
         name: String!
         code: String
         pitchRate: Float
@@ -165,11 +168,11 @@ module.exports = gql`
     }
     
     type Query {
-        brewDay(brewInstanceId: String): BrewInstance
-        brewDays: [BrewInstance!]
+        brewInstance(brewInstanceId: String): BrewInstance
+        brewInstances: [BrewInstance!]
         ferment(fermentId: String): Ferment
         ferments: [Ferment!]
-        fermentationVessel(vesselId: String): FermentationVessel
+        fermentationVessel(fermentationVesselId: String): FermentationVessel
         fermentationVessels: [FermentationVessel!]
         ingredients: IngredientResults
         recipe(recipeId: String): Recipe
